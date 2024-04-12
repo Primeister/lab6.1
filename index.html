@@ -15,7 +15,7 @@
     </main>
 
     <script>
-    fetch('https://fundreq.azurewebsites.net')
+    ffetch('https://fundreq.azurewebsites.net')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -24,6 +24,8 @@
   })
   .then(data => {
     console.log('Response from server:', data);
+    text = document.getElementById('name');
+    text.innerText = data[0];
     // Process the response data here
   })
   .catch(error => {
