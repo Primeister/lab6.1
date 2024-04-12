@@ -15,10 +15,20 @@
     </main>
 
     <script>
-    (async function() {
-        const { text } = await( await fetch(`https://fundreq.azurewebsites.net/`)).json();
-        document.querySelector('#name').textContent = text;
-    }());
+    fetch('https://fundreq.azurewebsites.net')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Response from server:', data);
+    // Process the response data here
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
     </script>
 </body>
 
